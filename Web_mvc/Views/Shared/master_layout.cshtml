@@ -1,0 +1,419 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- Bootstrap 3.3.7 -->
+    <!-- custom style-->
+    <link rel="stylesheet" href="~/css/ecommerce4/app.css" />
+    @*<link rel="stylesheet" href="https://shop.vnptthanhhoa.vn/ecommerce4/css/app.css" />*@
+    <link rel="stylesheet" href="https://shop.vnptthanhhoa.vn/ecommerce4/css/libs.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    <link href="~/css/bootstrap-rat.css" rel="stylesheet">
+    <!-- Stack styles : Push style here -->
+</head>
+
+<body class="home-page">
+    <div class="page" id="spinner">
+        <header class="header">
+            <style>
+                .twitter-typeahead {
+                    width: 90% !important;
+                    float: left;
+                    border-right: 1px solid #eee;
+                }
+
+                .pac-card {
+                    width: 36%;
+                    float: left;
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                }
+
+                .numNoty {
+                    padding: 2px 3px;
+                    position: absolute;
+                    top: 2px;
+                    margin-left: 12px;
+                    background-color: red !important;
+                }
+
+                @@media(max-width: 768px) {
+                    .numNoty {
+                        top: -5px;
+                    }
+                }
+            </style>
+            <!-- Đăt chung để gọi hàm script logout cho nhiều vị trí -->
+            <form id="logout-form" action="https://shop.vnptthanhhoa.vn/logout" method="post" style="display: none;"><input type="hidden" name="_token" value="YdRpdONGBgWbJ2rzOCcD4VF2A1sxxnYglny4VsBC"></form>
+
+            <div class="header__wrapper">
+                <div class="container">
+                    <div class="header__inner">
+                        <a class="logo" href="https://shop.vnptthanhhoa.vn"><img src="https://shop.vnptthanhhoa.vn/ecommerce4/images/logo.png" alt="" /></a>
+                        <div class="header__elements">
+                            <a class="h-promotion" href="#!"><i class="fa fa-fw fa-gift"></i><span>Ưu đãi hôm nay</span></a>
+                            <a class="h-contact" href="tel:0847136136"> <i class="fa fa-fw fa-phone"></i><strong>0847.136.136</strong><span>HOTLINE</span></a>
+                            <button class="navbar-toggle navbar-toggle--white d-xl-none js-navbar-toggle ml-3"><span></span><span></span><span></span></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <nav class="navigation js-scroll-fixed">
+                <div class="navigation__wrapper">
+                    <div class="container">
+                        <div class="navigation__inner">
+                            <form class="search">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="Bạn cần tìm kiếm sản phẩm gì?" />
+                                    <div class="input-group-append">
+                                        <button class="input-group-text" onclick="search();"><i class="fa fa-search"></i><span>Tìm kiếm</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <button class="navbar-toggle navbar-toggle--white d-xl-none js-navbar-toggle ml-3"><span></span><span></span><span></span></button>
+                            <section class="navbar js-navbar">
+                                <div class="navbar__backdrop js-navbar-toggle"></div>
+                                <div class="navbar__wrapper">
+                                    <div class="navbar__header">
+                                        <a class="logo" href="https://shop.vnptthanhhoa.vn"><img src="https://shop.vnptthanhhoa.vn/ecommerce4/images/logo.png" alt="" /></a>
+                                        <button class="navbar-toggle js-navbar-toggle ml-auto"><span></span><span></span><span></span></button>
+                                    </div>
+                                    <div class="navbar__body">
+                                        <ul class="menu menu-nav">
+                                            <!--<ul class="dropdown-menu" data-widget="tree">-->
+
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://shop.vnpt.vn/ctv/link/hrNc0wsT" target="_blank">
+                                                    <i class='fa '></i><span>Chọn Sim Số</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://shop.vnpt.vn/ctv/link/EAqWagKl" target="_blank">
+                                                    <i class='fa '></i><span>Sim số đẹp</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://shop.vnpt.vn/ctv/link/hrNc0wsT" target="_blank">
+                                                    <i class='fa '></i><span>Nạp thẻ</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="http://sohuong.vinaphone.com.vn/" target="_blank">
+                                                    <i class='fa '></i><span>Chuyển mạng giữ số</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://sme.shop.vnpt.vn" target="_blank">
+                                                    <i class='fa '></i><span>Doanh Nghiệp</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/invoices">
+                                                    <i class='fa '></i><span>Tra cứu hoá đơn</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-tin-tuc">
+                                                    <i class='fa '></i><span>Tin tức</span>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/ho-tro">
+                                                    <i class='fa '></i><span>Hỗ Trợ</span>
+                                                </a>
+                                            </li>
+
+                                            <!--</ul>-->
+
+
+                                        </ul>
+                                        <div class="pd-menu">
+                                            <div class="pd-menu__toggle"><img class="mr-3" src="https://shop.vnptthanhhoa.vn/ecommerce4/images/icon-grid-white.png" alt="" />Danh mục sản phẩm</div>
+                                            <ul class="menu menu-root">
+                                                <li class="menu-item menu-item-mega menu-item-group">
+                                                    <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/di-dong"> DI ĐỘNG</a>
+                                                    <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                    <div class="menu-mega">
+                                                        <ul class="menu menu-sub menu-sub-2">
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/chon-sim-so">Chọn Sim Số</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-cuoc-di-dong">Gói Trả trước</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                                <ul class="menu menu-sub menu-sub-2">
+                                                                    <li class="menu-item"><a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-fhappy">Gói FHAPPY</a></li>
+                                                                    <li class="menu-item"><a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-fclub">Gói FCLUB</a></li>
+                                                                    <li class="menu-item"><a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-s">Gói S</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/sim-kem-goi">Sim Kèm Gói</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-tra-sau">Gói Trả sau</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+
+
+                                                        </ul>
+                                                    </div>
+                                                </li>
+
+                                                <li class="menu-item menu-item-mega menu-item-group">
+                                                    <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/internet-truyenhinh"> INTERNET-TRUYỀN HÌNH</a>
+                                                    <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                    <div class="menu-mega">
+                                                        <ul class="menu menu-sub menu-sub-2">
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/internet-fibervnn">Internet Cáp Quang</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/combo-hometv-on">Home TV</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                                <ul class="menu menu-sub menu-sub-2">
+                                                                    <li class="menu-item"><a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hometv-moi">HomeTV mới</a></li>
+                                                                    <li class="menu-item"><a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hometv-online">HomeTV Online</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/ung-dung-mytv">Truyền hình MyTV</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/home-combo">Home Combo</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+
+
+                                                        </ul>
+                                                    </div>
+                                                </li>
+
+                                                <li class="menu-item menu-item-mega menu-item-group">
+                                                    <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/dich-vu-cntt"> DỊCH VỤ CNTT</a>
+                                                    <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                    <div class="menu-mega">
+                                                        <ul class="menu menu-sub menu-sub-2">
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-tich-hop-sme">Gói tích hợp SME</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/chu-ky-so-vnpt-ca">Chữ ký số VNPT-CA</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/xac-thuc-hang-hoa-vnpt-check">Xác thực hàng hóa - VNPT Check</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/quan-ly-nha-thuoc-vnpt-pharmacy">Quản lý nhà thuốc - VNPT Pharmacy</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hop-khong-giay-to-ecabinet">Kê khai BHXH trực tuyến - VNPT BHXH</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hoa-don-dien-tu">Hóa đơn điện tử</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/quan-ly-van-ban-dieu-hanh-ioffice">Quản lý văn bản điều hành - iOffice</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/phong-hop-khong-giay-to-ecabinet">Phòng họp không giấy tờ - eCabinet</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+                                                            <li class="menu-item menu-item-group">
+                                                                <a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/truyen-hinh-hoi-nghi-vnpt-meeting">Truyền hình hội nghị VNPT - Meeting</a>
+                                                                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                                            </li>
+
+
+                                                        </ul>
+                                                    </div>
+                                                </li>
+
+                                                <li class="menu-item"><a class="menu-link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/dich-vu-gia-tri-gia-tang">DỊCH VỤ GIÁ TRỊ GIA TĂNG</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        @RenderBody()
+        <footer>
+            <!-- footer-->
+            <section class="follow">
+                <div class="container">
+                    <div class="follow__inner">
+                        <h3 class="follow__label">Đăng ký nhận tin</h3>
+                        <form class="follow__form">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Nhập email của bạn" />
+                                <div class="input-group-append">
+                                    <button class="input-group-text"><i class="fa fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <nav class="social"><a class="social__item" href="#!"><i class="fa fa-fw fa-facebook"></i></a><a class="social__item" href="#!"><i class="fa fa-fw fa-twitter"></i></a><a class="social__item" href="#!"><i class="fa fa-fw fa-google-plus"></i></a><a class="social__item" href="#!"><i class="fa fa-fw fa-instagram"></i></a><a class="social__item" href="#!"><i class="fa fa-fw fa-youtube"></i></a></nav>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__grid">
+                        <div class="footer__col">
+                            <div class="footer__title">TRUNG TÂM KINH DOANH VNPT - THANH HÓA</div>
+                            <div class="footer__title">CHI NHÁNH TỔNG CÔNG TY DỊCH VỤ VIỄN THÔNG</div>
+                            <div class="footer__content">
+                                <div>Địa chỉ trụ sở: 26A Đại lộ Lê Lợi, Phường Điện Biên, Thành phố Thanh Hóa, Thanh Hóa</div>
+                                <div>Hotline: <a href="#"> 0847.136.136</a></div>
+                                <div>Email: <a href="#">thanhhoa@vnpt.vn</a></div>
+                                <div>Mã số doanh nghiệp: 0106869738-020 do Sở Kế hoạch và Đầu tư Thanh Hóa cấp ngày 6/10/2015</div>
+                                <!-- <div>Thời gian làm việc: 8h30 - 18h</div> -->
+                            </div>
+                        </div>
+                        <div class="footer__col">
+                            <div class="footer__title">VỀ CHÚNG TÔI</div>
+                            <ul class="f-menu">
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Thư ngỏ</a></li>
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Liên hệ</a></li>
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Tuyển dụng</a></li>
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Hợp Tác Kinh Doanh</a></li>
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Bản đồ</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__col">
+                            <div class="footer__title">HỖ TRỢ - CHÍNH SÁCH</div>
+                            <ul class="f-menu">
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Phương thức thanh toán</a></li>
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Hướng dẫn mua hàng online</a></li>
+                                <li class="f-menu__item"><a class="f-menu__link" href="#!">Chính sách bảo mật</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__col">
+
+                            <iframe style="margin-top: 10px;" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvnpt.thanhhoa.7&tabs=272&width=340&height=100&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="360" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            <div class="zalo-follow-button" data-oaid="4202790662105619330" data-cover="yes" data-article="0" data-width="360" data-height="150"></div>
+                            <!-- <div class="footer__title"><a href="https://www.facebook.com/vnpt.thanhhoa.7"> FACEBOOK VNPT THANH HÓA</a></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__copyright">
+                    <div class="container">Copyright © 2021 vnptthanhhoa.vn | © Bản quyền thuộc về vnptthanhhoa.vn</div>
+                </div>
+            </footer>
+            <!-- modals + sticky widgets-->
+            <button class="btn btn-movetop js-scroll-to" type="button" data-target="body"><i class="fa fa-arrow-up"></i></button>
+            <div class="sticky-btns">
+
+                <a class="phone-ring" href="tel:0847136136">
+                    <span class="phone-ring__icon"><i class="fa fa-phone"></i></span>
+                    <span class="phone-ring__text">0847.136.136</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+    <div id="fb-root"></div>
+    <!-- javascript library-->
+    <!-- vendor script-->
+
+    <script src="~/public/jquery-3.3.1.min.js"></script>
+    <script src="~/public/bootstrap.min.js"></script>
+    <script src="~/css/js/bootstrap-rating.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/public/swiper.min.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        // swiper template
+        function addSwiper(selector, options) {
+            if (options === void 0) options = {};
+            return Array.from(document.querySelectorAll(selector), function (item) {
+                var $sliderContainer = $(item),
+                    $sliderEl = $sliderContainer.find('.swiper-container');
+
+                if (options.navigation) {
+                    $sliderContainer.addClass('has-nav');
+                    options.navigation = {
+                        prevEl: $sliderContainer.find(selector + '__prev'),
+                        nextEl: $sliderContainer.find(selector + '__next')
+                    };
+                }
+
+                if (options.pagination) {
+                    $sliderContainer.addClass('has-pagination');
+                    options.pagination = {
+                        el: $sliderContainer.find(selector + '__pagination'),
+                        clickable: true
+                    };
+                }
+
+                return new Swiper($sliderEl, options);
+            });
+        }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129219308-1');
+        $(function () {
+            $(window).on('load', function () {
+                // if (!sessionStorage.getItem('shown-modal-ads')) {
+                $('#modalAds').modal('show');
+                sessionStorage.setItem('shown-modal-ads', 'true');
+                //    }
+            });
+            addSwiper('.category-slider', {
+                navigation: true,
+                slidesPerView: 8,
+                spaceBetween: 30,
+                speed: 800,
+                loop: true,
+                breakpoints: {
+                    991: {
+                        slidesPerView: 4
+                    },
+                    767: {
+                        slidesPerView: 3,
+                        spaceBetween: 16
+                    },
+                    575: {
+                        slidesPerView: 2
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script src="~/css/js/app.js"></script>
+    <script src="~/css/js/libs.js"></script>
+    <script src="~/css/js/typeahead.bundle.js"></script>
+</body>
+
+</html>

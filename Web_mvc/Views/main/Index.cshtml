@@ -1,0 +1,338 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/master_layout.cshtml";
+}
+
+<div class="page__content">
+    <h1 style="display:none;">  VNPT Thanh Hóa</h1>
+    <h2 style="display:none;">  VNPT Thanh Hóa</h2>
+    <div class="bg-light pt-10 border-bottom">
+        <div class="container">
+            <style>
+                .popup_close-btn {
+                    cursor: pointer;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    line-height: 2.5rem;
+                    height: 1.875rem;
+                    width: 1.875rem;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-align: center;
+                    -webkit-align-items: center;
+                    -moz-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -webkit-box-pack: center;
+                    -webkit-justify-content: center;
+                    -moz-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    position: absolute;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    background-color: #5a5a5a;
+                    top: -.625rem;
+                    right: -.625rem;
+                    border-radius: 1.25rem;
+                    border: 3px solid #fff;
+                }
+
+                    .popup_close-btn .shopee-svg-icon {
+                        font-size: .75rem;
+                        color: #fff;
+                    }
+
+                .shopee-svg-icon {
+                    display: inline-block;
+                    width: 1em;
+                    height: 1em;
+                    fill: currentColor;
+                    position: relative;
+                }
+            </style>
+            <div id="modalAds" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div data-dismiss="modal" class="popup_close-btn">
+                            <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon "><path d="m10.7 9.2-3.8-3.8 3.8-3.7c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0l-3.8 3.7-3.8-3.7c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l3.8 3.7-3.8 3.8c-.4.4-.4 1 0 1.4.2.2.5.3.7.3.3 0 .5-.1.7-.3l3.8-3.8 3.8 3.8c.2.2.4.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4z"></path></svg>
+                        </div>
+                        <div class="banner-popup-container">
+                            <a href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hometv-moi" class="popup-banner" target="_blank">
+                                <img class="popup-banner-img" src='https://shop.vnptthanhhoa.vn/image/0/0/U1ZLJERxoLc1AGTx4A6biwOQ1pXQPdQYac7T7HyT.png'>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-slider has-nav">
+                <div class="banner-slider__prev"><i class="fa fa-angle-left"></i></div>
+                <div class="banner-slider__next"><i class="fa fa-angle-right"></i></div>
+                <div class="banner-slider__container swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fclub"><img src="~/img/img_extra/2DBfwcJEQ0aclB6SxCoDHmDB2O9Yam1G0w4x1JsZ.png" alt="FClub tháng 7" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/san-iphone-13-cung-vinaphone"><img src="~/img/img_extra/3LiE5X09fbqVlMrEo1R4YilDK3kwfpTYxX4Eal70.png" alt="Săn Iphone 13 Pro cùng Vinaphone" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/dai-tiec-mua-sam-cuoi-nam-voi-con-mua-qua-tang-cung-vnpt"><img src="~/img/img_extra/3qTxqkUWPHjyaEkxZHmWieYDBVZDLdD1Oq2oOnXJ.png" alt="Đại tiệc mua sắm cuối năm với cơn mưa quà tặng cùng VNPT" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fhappy"><img src="~/img/img_extra/fwoRdqWoXKZzXpc0IDIy42cgJwO1RTKzaCKiLorG.png" alt="FHappy tháng 7" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-vd149s"><img src="~/img/img_extra/QTPYMVmo2aKn2trEp0026gS4nsuB98YEFyUAlSnW.png" alt="VD149S tháng 7" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/lap-mang-vnpt-nhanh-nhat-chat-hon-cung-home-super-2"><img src="~/img/img_extra/tC2NnpeH8WtwzfP8O14s0X6DoeKpExOd2npnso2d.png" alt="Home super tháng 7" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/one-sme"><img src="~/img/img_extra/tC2NnpeH8WtwzfP8O14s0X6DoeKpExOd2npnso2d.png" alt="OneSME" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/hometv-on-cho-smarttv-6-thang-tang-01-thang"><img src="~/img/img_extra/XTNFUztMGdf62DxL6Sro4aL327KocSb57odiWPon.png" alt="HomeTV On tháng 7" /></a></div>
+                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnpt.vn/ctv/link/vb6Nh2US"><img src="~/img/img_extra/Zj1TNxYKLjcnrzcMsJP8DO2JHX5jD6DuBMHga8vx.png" alt="Gói S" /></a></div>
+                    </div>
+                </div>
+            </div>    <div class="cart-slider has-nav">
+                <div class="cart-slider">
+                    <div class="cart-slider__prev"><i class="fa fa-angle-left"></i></div>
+                    <div class="cart-slider__next"><i class="fa fa-angle-right"></i></div>
+                    <div class="cart-slider__container swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnpt.vn/goi-cuoc.html?utm_source=freedoo&amp;vsb_click_id=8971973c75b44abea9f34f2141b78c9b1621069796656vn6hscgfyd7boaq4"><img src="~/img/img_main/2ZKYWXrmpH9deCnE8yPYngYOoPF5da8WlrEiVmeG.png" alt="Gói S" /></a></div>
+                            <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fclub"><img src="~/img/img_main/uVrvpMqE6j16ih26fF7oZRbGDCx4wVDxGDPg2zdA.png" alt="FClub tháng 7 mid" /></a></div>
+                            <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fhappy"><img src="~/img/img_main/CP5NOUaEV0bullCA6Ya4294V37pQni7ftUJrvOJN.png " alt="FHappy tháng 7 mid" /></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    <section class="section js-cat-section" data-cat-index="1">
+                <div class="section__header">
+                    <h2 class="section__title">DI ĐỘNG</h2>
+                    <div class="section__nav">
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/chon-sim-so">Chọn Sim Số</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-cuoc-di-dong">Gói Trả trước</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/sim-kem-goi">Sim Kèm Gói</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-tra-sau">Gói Trả sau</a>
+                    </div>
+                    <a class="section__link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/di-dong">Xem tất cả</a>
+                </div>
+                <div class="pd-grid">
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-thuong-gia-2">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/umB8lwbeA7M8jBsA3zs2LD6CSlzrbZBjUvORJO90.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-thuong-gia-2">Gói Thương gia 2</a></h3>
+                            <div class="product__price">
+                                500.000 ₫
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-thuong-gia-1">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/SV63hYNESm7P2tOl8VbkDIKHjBlwckT6yV2L04nc.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-thuong-gia-1">Gói Thương gia 1</a></h3>
+                            <div class="product__price">
+                                350.000 ₫
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-digi249">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/mEnCGw4yDROwkqWGw0lPxY2mxA63q3WSB7KJqkWC.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-digi249">Gói Digi249</a></h3>
+                            <div class="product__price">
+                                207.500 ₫
+                                <span>Giảm 17%</span>
+                                <del>249.000 ₫</del>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-digi129">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/nzfaaf0JeNbLpZCmUgVF0l9Yc6lIvYOBKiw0xL2j.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-digi129">Gói Digi129</a></h3>
+                            <div class="product__price">
+                                107.500 ₫
+                                <span>Giảm 17%</span>
+                                <del>129.000 ₫</del>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section js-cat-section" data-cat-index="1">
+                <div class="section__header">
+                    <h2 class="section__title">INTERNET-TRUYỀN HÌNH</h2>
+                    <div class="section__nav">
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/internet-fibervnn">Internet Cáp Quang</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/combo-hometv-on">Home TV</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/ung-dung-mytv">Truyền hình MyTV</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/home-combo">Home Combo</a>
+                    </div>
+                    <a class="section__link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/internet-truyenhinh">Xem tất cả</a>
+                </div>
+                <div class="pd-grid">
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/truyen-hinh-k">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/CRuffLRWrHFp0RzwYOrA3zwSRrJnhFY98vN5g4QT.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/truyen-hinh-k">Truyền hình K+</a></h3>
+                            <div class="product__price">
+                                33.000 ₫
+                                <span>Giảm 50%</span>
+                                <del>66.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/hometv-5-super-trang-bi-dau-thong-minh-android-va-03-wifi-mesh">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/whMNO1VbhvzvcyvES36YRH1GE2z1666HKsy2JpU6.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/hometv-5-super-trang-bi-dau-thong-minh-android-va-03-wifi-mesh">HomeTV 5 Super - Trang bị đầu thông minh Android và 03 Wifi Mesh</a></h3>
+                            <div class="product__price">
+                                272.000 ₫
+                                <span>Giảm 20%</span>
+                                <del>340.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/hometv-4-super">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/xMOILi8wWBddOKsbFq2KsmNwlCBne3liA6rL8bkh.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/hometv-4-super">HomeTV 4 Super - Trang bị đầu thông minh Android và 02 Wifi Mesh</a></h3>
+                            <div class="product__price">
+                                232.000 ₫
+                                <span>Giảm 20%</span>
+                                <del>290.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/hometv-super-3-trang-bi-dau-android-thong-minh-va-01-wifi-mesh">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/uIRxQLRTSLfHfEopbV4Jl3I1nisXMPMKRD5JWwdi.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/hometv-super-3-trang-bi-dau-android-thong-minh-va-01-wifi-mesh">HomeTV Super 3 - Trang bị đầu thông minh Android và 01 Wifi Mesh</a></h3>
+                            <div class="product__price">
+                                204.000 ₫
+                                <span>Giảm 20%</span>
+                                <del>255.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section js-cat-section" data-cat-index="1">
+                <div class="section__header">
+                    <h2 class="section__title">DỊCH VỤ CNTT</h2>
+                    <div class="section__nav">
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/goi-tich-hop-sme">Gói tích hợp SME</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/chu-ky-so-vnpt-ca">Chữ ký số VNPT-CA</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/xac-thuc-hang-hoa-vnpt-check">Xác thực hàng hóa - VNPT Check</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/quan-ly-nha-thuoc-vnpt-pharmacy">Quản lý nhà thuốc - VNPT Pharmacy</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hop-khong-giay-to-ecabinet">Kê khai BHXH trực tuyến - VNPT BHXH</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hoa-don-dien-tu">Hóa đơn điện tử</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/quan-ly-van-ban-dieu-hanh-ioffice">Quản lý văn bản điều hành - iOffice</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/phong-hop-khong-giay-to-ecabinet">Phòng họp không giấy tờ - eCabinet</a>
+                        <a class="section__nav-item" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/truyen-hinh-hoi-nghi-vnpt-meeting">Truyền hình hội nghị VNPT - Meeting</a>
+                    </div>
+                    <a class="section__link" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/dich-vu-cntt">Xem tất cả</a>
+                </div>
+                <div class="pd-grid">
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/chu-ky-so-vnpt-ca-3-nam">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/srKXPOWJlEKm91VQ39mv7xewRUnOk4vadc01RWhB.png" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/chu-ky-so-vnpt-ca-3-nam">Chữ ký số VNPT-CA (3 năm)</a></h3>
+                            <div class="product__price">
+                                2.489.600 ₫
+                                <span>Giảm 20%</span>
+                                <del>3.112.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/chu-ky-so-vnpt-ca-2-nam">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/OxlR0e4jrbUcgs1hDeRpVBSNM1Aeo0nhqMUsFCqn.png" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/chu-ky-so-vnpt-ca-2-nam">Chữ ký số VNPT-CA (2 năm)</a></h3>
+                            <div class="product__price">
+                                1.752.000 ₫
+                                <span>Giảm 20%</span>
+                                <del>2.190.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/quan-ly-nha-thuoc-vnpt-pharmacy">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/GXgnI19LnYNK2OlXGGhrkfVfNFV0UuTvYOreJXBF.jpg" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/quan-ly-nha-thuoc-vnpt-pharmacy">Quản lý Nhà thuốc VNPT Pharmacy</a></h3>
+                            <div class="product__price">
+                                90.000 ₫
+                                <span>Giảm 10%</span>
+                                <del>100.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="product">
+                        <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/chu-ky-so-vnpt-ca">
+                            <img src="https://shop.vnptthanhhoa.vn/image/0/0/oiVpXRadwgZq3XjQOpSdw2ArfVEzjkkB563QvCcz.png" alt="" />
+                        </a>
+                        <div class="product__body">
+                            <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/chu-ky-so-vnpt-ca">Chữ ký số VNPT-CA (1 năm)</a></h3>
+                            <div class="product__price">
+                                1.018.400 ₫
+                                <span>Giảm 20%</span>
+                                <del>1.273.000 ₫</del>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-2 mb-50">
+                <h2 class="section-2__title">Các Sản Phẩm Nổi Bật</h2>
+                <div class="partner-slider">
+                    <div class="partner-slider__prev"><i class="fa fa-angle-left"></i></div>
+                    <div class="partner-slider__next"><i class="fa fa-angle-right"></i></div>
+                    <div class="partner-slider__container swiper-container">
+                        <div class="swiper-wrapper">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+

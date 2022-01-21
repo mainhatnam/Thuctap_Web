@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLBHModelStoreContainer" CdmEntityContainer="QLBH">
+    <EntitySetMapping Name="DanhMucHoTroes">
+      <EntityTypeMapping TypeName="QLBHModel.DanhMucHoTro">
+        <MappingFragment StoreEntitySet="DanhMucHoTro">
+          <ScalarProperty Name="MaLoaiDanhMuc" ColumnName="MaLoaiDanhMuc" />
+          <ScalarProperty Name="Id_GoiHoTro" ColumnName="Id_GoiHoTro" />
+          <ScalarProperty Name="TenGoiHoTro" ColumnName="TenGoiHoTro" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiamGias">
+      <EntityTypeMapping TypeName="QLBHModel.GiamGia">
+        <MappingFragment StoreEntitySet="GiamGia">
+          <ScalarProperty Name="MaGiamGia" ColumnName="MaGiamGia" />
+          <ScalarProperty Name="TenGiamGia" ColumnName="TenGiamGia" />
+          <ScalarProperty Name="TyLe" ColumnName="TyLe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiDanhMucs">
+      <EntityTypeMapping TypeName="QLBHModel.LoaiDanhMuc">
+        <MappingFragment StoreEntitySet="LoaiDanhMuc">
+          <ScalarProperty Name="MaLoaiDanhMuc" ColumnName="MaLoaiDanhMuc" />
+          <ScalarProperty Name="TenLoaiDanhMuc" ColumnName="TenLoaiDanhMuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLBHModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TenDanhMucs">
+      <EntityTypeMapping TypeName="QLBHModel.TenDanhMuc">
+        <MappingFragment StoreEntitySet="TenDanhMuc">
+          <ScalarProperty Name="MaLoaiDanhMuc" ColumnName="MaLoaiDanhMuc" />
+          <ScalarProperty Name="TenDanhMuc1" ColumnName="TenDanhMuc" />
+          <ScalarProperty Name="TienGoc" ColumnName="TienGoc" />
+          <ScalarProperty Name="TienGiamGia" ColumnName="TienGiamGia" />
+          <ScalarProperty Name="MoTaNgan" ColumnName="MoTaNgan" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="Id_DanhMuc" ColumnName="Id_DanhMuc" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="GiamGia" ColumnName="GiamGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

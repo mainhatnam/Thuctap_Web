@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DanhMucHoTro">
+    <Key>
+      <PropertyRef Name="MaLoaiDanhMuc" />
+      <PropertyRef Name="Id_GoiHoTro" />
+    </Key>
+    <Property Name="MaLoaiDanhMuc" Type="Int32" Nullable="false" />
+    <Property Name="Id_GoiHoTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGoiHoTro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoaiDanhMuc" Relationship="Self.fk_ght" FromRole="DanhMucHoTro" ToRole="LoaiDanhMuc" />
+  </EntityType>
+  <EntityType Name="GiamGia">
+    <Key>
+      <PropertyRef Name="MaGiamGia" />
+    </Key>
+    <Property Name="MaGiamGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGiamGia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TyLe" Type="Int32" />
+    <NavigationProperty Name="TenDanhMucs" Relationship="Self.fk_giamgia" FromRole="GiamGia" ToRole="TenDanhMuc" />
+  </EntityType>
+  <EntityType Name="LoaiDanhMuc">
+    <Key>
+      <PropertyRef Name="MaLoaiDanhMuc" />
+    </Key>
+    <Property Name="MaLoaiDanhMuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiDanhMuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DanhMucHoTroes" Relationship="Self.fk_ght" FromRole="LoaiDanhMuc" ToRole="DanhMucHoTro" />
+    <NavigationProperty Name="TenDanhMucs" Relationship="Self.fk_tdm_mldm_ldm" FromRole="LoaiDanhMuc" ToRole="TenDanhMuc" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TenDanhMuc">
+    <Key>
+      <PropertyRef Name="MaLoaiDanhMuc" />
+      <PropertyRef Name="Id_DanhMuc" />
+    </Key>
+    <Property Name="MaLoaiDanhMuc" Type="Int32" Nullable="false" />
+    <Property Name="TenDanhMuc1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TienGoc" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TienGiamGia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MoTaNgan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Id_DanhMuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Link" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="GiamGia" Type="Int32" />
+    <NavigationProperty Name="GiamGia1" Relationship="Self.fk_giamgia" FromRole="TenDanhMuc" ToRole="GiamGia" />
+    <NavigationProperty Name="LoaiDanhMuc" Relationship="Self.fk_tdm_mldm_ldm" FromRole="TenDanhMuc" ToRole="LoaiDanhMuc" />
+  </EntityType>
+  <Association Name="fk_ght">
+    <End Role="LoaiDanhMuc" Type="Self.LoaiDanhMuc" Multiplicity="1" />
+    <End Role="DanhMucHoTro" Type="Self.DanhMucHoTro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDanhMuc">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Principal>
+      <Dependent Role="DanhMucHoTro">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_giamgia">
+    <End Role="GiamGia" Type="Self.GiamGia" Multiplicity="0..1" />
+    <End Role="TenDanhMuc" Type="Self.TenDanhMuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiamGia">
+        <PropertyRef Name="MaGiamGia" />
+      </Principal>
+      <Dependent Role="TenDanhMuc">
+        <PropertyRef Name="GiamGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tdm_mldm_ldm">
+    <End Role="LoaiDanhMuc" Type="Self.LoaiDanhMuc" Multiplicity="1" />
+    <End Role="TenDanhMuc" Type="Self.TenDanhMuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDanhMuc">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Principal>
+      <Dependent Role="TenDanhMuc">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBH" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DanhMucHoTroes" EntityType="Self.DanhMucHoTro" />
+    <EntitySet Name="GiamGias" EntityType="Self.GiamGia" />
+    <EntitySet Name="LoaiDanhMucs" EntityType="Self.LoaiDanhMuc" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TenDanhMucs" EntityType="Self.TenDanhMuc" />
+    <AssociationSet Name="fk_ght" Association="Self.fk_ght">
+      <End Role="LoaiDanhMuc" EntitySet="LoaiDanhMucs" />
+      <End Role="DanhMucHoTro" EntitySet="DanhMucHoTroes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_giamgia" Association="Self.fk_giamgia">
+      <End Role="GiamGia" EntitySet="GiamGias" />
+      <End Role="TenDanhMuc" EntitySet="TenDanhMucs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tdm_mldm_ldm" Association="Self.fk_tdm_mldm_ldm">
+      <End Role="LoaiDanhMuc" EntitySet="LoaiDanhMucs" />
+      <End Role="TenDanhMuc" EntitySet="TenDanhMucs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

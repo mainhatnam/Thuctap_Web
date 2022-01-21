@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DanhMucHoTro">
+    <Key>
+      <PropertyRef Name="MaLoaiDanhMuc" />
+      <PropertyRef Name="Id_GoiHoTro" />
+    </Key>
+    <Property Name="MaLoaiDanhMuc" Type="int" Nullable="false" />
+    <Property Name="Id_GoiHoTro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGoiHoTro" Type="nvarchar" MaxLength="100" />
+    <Property Name="Link" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="GiamGia">
+    <Key>
+      <PropertyRef Name="MaGiamGia" />
+    </Key>
+    <Property Name="MaGiamGia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGiamGia" Type="nvarchar" MaxLength="100" />
+    <Property Name="TyLe" Type="int" />
+  </EntityType>
+  <EntityType Name="LoaiDanhMuc">
+    <Key>
+      <PropertyRef Name="MaLoaiDanhMuc" />
+    </Key>
+    <Property Name="MaLoaiDanhMuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiDanhMuc" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TenDanhMuc">
+    <Key>
+      <PropertyRef Name="MaLoaiDanhMuc" />
+      <PropertyRef Name="Id_DanhMuc" />
+    </Key>
+    <Property Name="MaLoaiDanhMuc" Type="int" Nullable="false" />
+    <Property Name="TenDanhMuc" Type="nvarchar" MaxLength="100" />
+    <Property Name="TienGoc" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TienGiamGia" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MoTaNgan" Type="nvarchar" MaxLength="500" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Id_DanhMuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Link" Type="char" MaxLength="100" />
+    <Property Name="GiamGia" Type="int" />
+  </EntityType>
+  <Association Name="fk_ght">
+    <End Role="LoaiDanhMuc" Type="Self.LoaiDanhMuc" Multiplicity="1" />
+    <End Role="DanhMucHoTro" Type="Self.DanhMucHoTro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDanhMuc">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Principal>
+      <Dependent Role="DanhMucHoTro">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_giamgia">
+    <End Role="GiamGia" Type="Self.GiamGia" Multiplicity="0..1" />
+    <End Role="TenDanhMuc" Type="Self.TenDanhMuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiamGia">
+        <PropertyRef Name="MaGiamGia" />
+      </Principal>
+      <Dependent Role="TenDanhMuc">
+        <PropertyRef Name="GiamGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tdm_mldm_ldm">
+    <End Role="LoaiDanhMuc" Type="Self.LoaiDanhMuc" Multiplicity="1" />
+    <End Role="TenDanhMuc" Type="Self.TenDanhMuc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDanhMuc">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Principal>
+      <Dependent Role="TenDanhMuc">
+        <PropertyRef Name="MaLoaiDanhMuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBHModelStoreContainer">
+    <EntitySet Name="DanhMucHoTro" EntityType="Self.DanhMucHoTro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiamGia" EntityType="Self.GiamGia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiDanhMuc" EntityType="Self.LoaiDanhMuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TenDanhMuc" EntityType="Self.TenDanhMuc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_ght" Association="Self.fk_ght">
+      <End Role="LoaiDanhMuc" EntitySet="LoaiDanhMuc" />
+      <End Role="DanhMucHoTro" EntitySet="DanhMucHoTro" />
+    </AssociationSet>
+    <AssociationSet Name="fk_giamgia" Association="Self.fk_giamgia">
+      <End Role="GiamGia" EntitySet="GiamGia" />
+      <End Role="TenDanhMuc" EntitySet="TenDanhMuc" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tdm_mldm_ldm" Association="Self.fk_tdm_mldm_ldm">
+      <End Role="LoaiDanhMuc" EntitySet="LoaiDanhMuc" />
+      <End Role="TenDanhMuc" EntitySet="TenDanhMuc" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
