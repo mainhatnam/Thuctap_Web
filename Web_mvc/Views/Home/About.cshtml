@@ -1,7 +1,11 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@model List<Web_mvc.DB.DanhMuc>
 
-<p>Use this area to provide additional information.</p>
+@foreach (var item in Model)
+{
+    <div> @item.Id_DanhMuc </div>
+    <div> @item.TenDanhMuc </div>
+    <br />
+}

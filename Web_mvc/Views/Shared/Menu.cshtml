@@ -1,0 +1,32 @@
+﻿<ul class="menu menu-root">
+    @foreach (var item in Model.Loaidanhmuc){
+    <li class="menu-item menu-item-mega menu-item-group">
+        @*https://shop.vnptthanhhoa.vn/danh-muc-san-pham/di-dong*@
+        @Html.ActionLink((string)item.TenLoaiDanhMuc, "Main", "index", null, new { @class = "menu-link" })
+        @foreach (var item3 in Model.DanhMucHoTro)
+        {
+            if (item.MaLoaiDanhMuc == item3.MaLoaiDanhMuc)
+            {
+                <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                <div class="menu-mega">
+                    <ul class="menu menu-sub menu-sub-2">
+                        @foreach (var item2 in Model.DanhMucHoTro)
+                        {
+                            if (item.MaLoaiDanhMuc == item2.MaLoaiDanhMuc)
+                            {
+                                <li class="menu-item menu-item-group">
+
+                                    @Html.ActionLink((string)item2.TenGoiHoTro, "Main", "index", null, new { @class = "menu-link" })
+                                    <span class="menu-toggle"><span><i class="fa fa-angle-right"></i></span></span>
+                                </li>
+
+                            }
+                        }
+                    </ul>
+                </div>
+
+            }
+        }
+            </li>
+    }
+    </ul>

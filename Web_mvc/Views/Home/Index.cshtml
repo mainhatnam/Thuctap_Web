@@ -1,12 +1,24 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model dynamic
 
-@model List<Web_mvc.DB.LoaiDanhMuc>
-
-@foreach (var item in Model)
+@foreach (var item in Model.Loaidanhmuc)
 {
     <p>mã danh mục: @item.MaLoaiDanhMuc </p>
     <p>Tên danh mục: @item.TenLoaiDanhMuc </p>
     <br />
+
 }
+@foreach (var item in Model.DanhMucHoTro)
+{
+    <p>mã : @item.MaLoaiDanhMuc </p>
+    <p>Tên : @item.TenGoiHoTro </p>
+    <br />
+
+}
+
+<br />
+HẾT vòng lặp
+
+@{Html.RenderAction("test", "Home"); }

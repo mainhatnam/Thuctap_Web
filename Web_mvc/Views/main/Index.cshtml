@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/master_layout.cshtml";
+    List<List<Web_mvc.DB.DanhMuc >> danhmuc = ViewBag.danhmuc as List<List<Web_mvc.DB.DanhMuc>>;
+    var d = (List<List<Web_mvc.DB.DanhMuc>>)ViewBag.danhmuc;
 }
-
+@model Web_mvc.Models.Custom_index
 <div class="page__content">
     <h1 style="display:none;">  VNPT Thanh Hóa</h1>
     <h2 style="display:none;">  VNPT Thanh Hóa</h2>
@@ -63,6 +65,7 @@
                         <div data-dismiss="modal" class="popup_close-btn">
                             <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon "><path d="m10.7 9.2-3.8-3.8 3.8-3.7c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0l-3.8 3.7-3.8-3.7c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l3.8 3.7-3.8 3.8c-.4.4-.4 1 0 1.4.2.2.5.3.7.3.3 0 .5-.1.7-.3l3.8-3.8 3.8 3.8c.2.2.4.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4z"></path></svg>
                         </div>
+
                         <div class="banner-popup-container">
                             <a href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham/hometv-moi" class="popup-banner" target="_blank">
                                 <img class="popup-banner-img" src='https://shop.vnptthanhhoa.vn/image/0/0/U1ZLJERxoLc1AGTx4A6biwOQ1pXQPdQYac7T7HyT.png'>
@@ -71,35 +74,8 @@
                     </div>
                 </div>
             </div>
-            <div class="banner-slider has-nav">
-                <div class="banner-slider__prev"><i class="fa fa-angle-left"></i></div>
-                <div class="banner-slider__next"><i class="fa fa-angle-right"></i></div>
-                <div class="banner-slider__container swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fclub"><img src="~/img/img_extra/2DBfwcJEQ0aclB6SxCoDHmDB2O9Yam1G0w4x1JsZ.png" alt="FClub tháng 7" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/san-iphone-13-cung-vinaphone"><img src="~/img/img_extra/3LiE5X09fbqVlMrEo1R4YilDK3kwfpTYxX4Eal70.png" alt="Săn Iphone 13 Pro cùng Vinaphone" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/dai-tiec-mua-sam-cuoi-nam-voi-con-mua-qua-tang-cung-vnpt"><img src="~/img/img_extra/3qTxqkUWPHjyaEkxZHmWieYDBVZDLdD1Oq2oOnXJ.png" alt="Đại tiệc mua sắm cuối năm với cơn mưa quà tặng cùng VNPT" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fhappy"><img src="~/img/img_extra/fwoRdqWoXKZzXpc0IDIy42cgJwO1RTKzaCKiLorG.png" alt="FHappy tháng 7" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-vd149s"><img src="~/img/img_extra/QTPYMVmo2aKn2trEp0026gS4nsuB98YEFyUAlSnW.png" alt="VD149S tháng 7" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/lap-mang-vnpt-nhanh-nhat-chat-hon-cung-home-super-2"><img src="~/img/img_extra/tC2NnpeH8WtwzfP8O14s0X6DoeKpExOd2npnso2d.png" alt="Home super tháng 7" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/tin-tuc/one-sme"><img src="~/img/img_extra/tC2NnpeH8WtwzfP8O14s0X6DoeKpExOd2npnso2d.png" alt="OneSME" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/hometv-on-cho-smarttv-6-thang-tang-01-thang"><img src="~/img/img_extra/XTNFUztMGdf62DxL6Sro4aL327KocSb57odiWPon.png" alt="HomeTV On tháng 7" /></a></div>
-                        <div class="swiper-slide"><a class="banner-slider__frame" href="https://shop.vnpt.vn/ctv/link/vb6Nh2US"><img src="~/img/img_extra/Zj1TNxYKLjcnrzcMsJP8DO2JHX5jD6DuBMHga8vx.png" alt="Gói S" /></a></div>
-                    </div>
-                </div>
-            </div>    <div class="cart-slider has-nav">
-                <div class="cart-slider">
-                    <div class="cart-slider__prev"><i class="fa fa-angle-left"></i></div>
-                    <div class="cart-slider__next"><i class="fa fa-angle-right"></i></div>
-                    <div class="cart-slider__container swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnpt.vn/goi-cuoc.html?utm_source=freedoo&amp;vsb_click_id=8971973c75b44abea9f34f2141b78c9b1621069796656vn6hscgfyd7boaq4"><img src="~/img/img_main/2ZKYWXrmpH9deCnE8yPYngYOoPF5da8WlrEiVmeG.png" alt="Gói S" /></a></div>
-                            <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fclub"><img src="~/img/img_main/uVrvpMqE6j16ih26fF7oZRbGDCx4wVDxGDPg2zdA.png" alt="FClub tháng 7 mid" /></a></div>
-                            <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnptthanhhoa.vn/san-pham/sim-fhappy"><img src="~/img/img_main/CP5NOUaEV0bullCA6Ya4294V37pQni7ftUJrvOJN.png " alt="FHappy tháng 7 mid" /></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>                    <section class="section js-cat-section" data-cat-index="1">
+            @RenderPage("img_banner.cshtml")              
+            <section class="section js-cat-section" data-cat-index="1">
                 <div class="section__header">
                     <h2 class="section__title">DI ĐỘNG</h2>
                     <div class="section__nav">

@@ -12,7 +12,7 @@ namespace Web_mvc.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GiamGia()
         {
-            TenDanhMuc = new HashSet<TenDanhMuc>();
+            DanhMuc = new HashSet<DanhMuc>();
         }
 
         [Key]
@@ -24,6 +24,6 @@ namespace Web_mvc.DB
         public int? TyLe { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TenDanhMuc> TenDanhMuc { get; set; }
+        public virtual ICollection<DanhMuc> DanhMuc { get; set; }
     }
 }

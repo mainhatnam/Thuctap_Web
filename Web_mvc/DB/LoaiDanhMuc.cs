@@ -12,8 +12,8 @@ namespace Web_mvc.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiDanhMuc()
         {
+            DanhMuc = new HashSet<DanhMuc>();
             DanhMucHoTro = new HashSet<DanhMucHoTro>();
-            TenDanhMuc = new HashSet<TenDanhMuc>();
         }
 
         [Key]
@@ -23,9 +23,9 @@ namespace Web_mvc.DB
         public string TenLoaiDanhMuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhMucHoTro> DanhMucHoTro { get; set; }
+        public virtual ICollection<DanhMuc> DanhMuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TenDanhMuc> TenDanhMuc { get; set; }
+        public virtual ICollection<DanhMucHoTro> DanhMucHoTro { get; set; }
     }
 }
