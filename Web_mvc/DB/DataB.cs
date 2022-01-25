@@ -8,22 +8,18 @@ namespace Web_mvc.DB
     public partial class DataB : DbContext
     {
         public DataB()
-            : base("name=DataB1")
+            : base("name=DataB2")
         {
         }
 
         public virtual DbSet<DanhMucHoTro> DanhMucHoTro { get; set; }
         public virtual DbSet<GiamGia> GiamGia { get; set; }
         public virtual DbSet<LoaiDanhMuc> LoaiDanhMuc { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TenDanhMuc> TenDanhMuc { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GiamGia>()
-                .HasMany(e => e.TenDanhMuc)
-                .WithOptional(e => e.GiamGia1)
-                .HasForeignKey(e => e.GiamGia);
-
             modelBuilder.Entity<LoaiDanhMuc>()
                 .HasMany(e => e.DanhMucHoTro)
                 .WithRequired(e => e.LoaiDanhMuc)

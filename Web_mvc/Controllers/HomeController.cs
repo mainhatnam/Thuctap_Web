@@ -10,9 +10,9 @@ namespace Web_mvc.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-
+            ViewBag.abc = id;
             Result_dbDM db = new Result_dbDM();
             List<LoaiDanhMuc> tb = db.Getall_data();
             return View(tb);

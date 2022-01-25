@@ -132,11 +132,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mainController.cs" />
     <Compile Include="DAO\Connect.cs" />
+    <Compile Include="DAO\GetData_Detail_Product.cs" />
     <Compile Include="DAO\Result_dbDM.cs" />
     <Compile Include="DB\DanhMucHoTro.cs" />
     <Compile Include="DB\DataB.cs" />
     <Compile Include="DB\GiamGia.cs" />
     <Compile Include="DB\LoaiDanhMuc.cs" />
+    <Compile Include="DB\sysdiagrams.cs" />
     <Compile Include="DB\TenDanhMuc.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img_product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

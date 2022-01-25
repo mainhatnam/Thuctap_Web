@@ -14,9 +14,8 @@ namespace Web_mvc.DB
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaLoaiDanhMuc { get; set; }
 
-        [Column("TenDanhMuc")]
         [StringLength(100)]
-        public string TenDanhMuc1 { get; set; }
+        public string DanhMuc { get; set; }
 
         [Column(TypeName = "numeric")]
         public decimal? TienGoc { get; set; }
@@ -37,9 +36,9 @@ namespace Web_mvc.DB
         [StringLength(100)]
         public string Link { get; set; }
 
-        public int? GiamGia { get; set; }
+        public int? MaGiamGia { get; set; }
 
-        public virtual GiamGia GiamGia1 { get; set; }
+        public virtual GiamGia GiamGia { get; set; }
 
         public virtual LoaiDanhMuc LoaiDanhMuc { get; set; }
     }
