@@ -130,20 +130,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\mainController.cs" />
+    <Compile Include="DAO\Connect.cs" />
+    <Compile Include="DAO\GetData_Detail_Product.cs" />
     <Compile Include="DAO\Result_dbDM.cs" />
-    <Compile Include="DB\DanhMuc.cs" />
     <Compile Include="DB\DanhMucHoTro.cs" />
     <Compile Include="DB\DataB.cs" />
     <Compile Include="DB\GiamGia.cs" />
-    <Compile Include="DB\Hinh_GT_extra.cs" />
-    <Compile Include="DB\Hinh_GT_MAIN.cs" />
     <Compile Include="DB\LoaiDanhMuc.cs" />
+    <Compile Include="DB\sysdiagrams.cs" />
+    <Compile Include="DB\TenDanhMuc.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Custom.cs" />
-    <Compile Include="Models\Custom_index.cs" />
+    <Compile Include="Models\danhmuc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +163,6 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\img_extra\1 %282%29.jpg" />
     <Content Include="img\img_extra\2DBfwcJEQ0aclB6SxCoDHmDB2O9Yam1G0w4x1JsZ.png" />
     <Content Include="img\img_extra\3LiE5X09fbqVlMrEo1R4YilDK3kwfpTYxX4Eal70.png" />
     <Content Include="img\img_extra\3qTxqkUWPHjyaEkxZHmWieYDBVZDLdD1Oq2oOnXJ.png" />
@@ -213,14 +212,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\master_layout.cshtml" />
-    <Content Include="Views\Main\Index.cshtml" />
-    <Content Include="Views\Main\Details.cshtml" />
-    <Content Include="Views\Home\test.cshtml" />
-    <Content Include="Views\Shared\Menu.cshtml" />
-    <Content Include="Views\Main\img_banner.cshtml" />
+    <Content Include="Views\main\Index.cshtml" />
+    <Content Include="Views\main\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img_product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

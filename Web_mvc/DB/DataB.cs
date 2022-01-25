@@ -8,49 +8,40 @@ namespace Web_mvc.DB
     public partial class DataB : DbContext
     {
         public DataB()
-            : base("name=DataB")
+            : base("name=DataB2")
         {
         }
 
-        public virtual DbSet<DanhMuc> DanhMuc { get; set; }
         public virtual DbSet<DanhMucHoTro> DanhMucHoTro { get; set; }
         public virtual DbSet<GiamGia> GiamGia { get; set; }
-        public virtual DbSet<Hinh_GT_extra> Hinh_GT_extra { get; set; }
-        public virtual DbSet<Hinh_GT_MAIN> Hinh_GT_MAIN { get; set; }
         public virtual DbSet<LoaiDanhMuc> LoaiDanhMuc { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TenDanhMuc> TenDanhMuc { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DanhMuc>()
-                .Property(e => e.TienGoc)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<DanhMuc>()
-                .Property(e => e.TienGiamGia)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<DanhMuc>()
-                .Property(e => e.Link)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Hinh_GT_extra>()
-                .Property(e => e.Link_hinh_extra)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Hinh_GT_MAIN>()
-                .Property(e => e.Link_hinh_mani)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<LoaiDanhMuc>()
-                .HasMany(e => e.DanhMuc)
-                .WithRequired(e => e.LoaiDanhMuc)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<LoaiDanhMuc>()
                 .HasMany(e => e.DanhMucHoTro)
                 .WithRequired(e => e.LoaiDanhMuc)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<LoaiDanhMuc>()
+                .HasMany(e => e.TenDanhMuc)
+                .WithRequired(e => e.LoaiDanhMuc)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TenDanhMuc>()
+                .Property(e => e.TienGoc)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<TenDanhMuc>()
+                .Property(e => e.TienGiamGia)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<TenDanhMuc>()
+                .Property(e => e.Link)
+                .IsFixedLength()
+                .IsUnicode(false);
         }
     }
 }
