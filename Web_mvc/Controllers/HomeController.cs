@@ -7,6 +7,7 @@ using Web_mvc.DAO;
 using Web_mvc.DB;
 using System.Dynamic;
 using Web_mvc.Models;
+using System.Globalization;
 
 namespace Web_mvc.Controllers
 {
@@ -15,27 +16,28 @@ namespace Web_mvc.Controllers
         public ActionResult Index()
         {
             Result_dbDM db = new Result_dbDM();
-            dynamic test =  new ExpandoObject();
-            test.danhmuc = db.Getall_data_danhmuc();
-            test.loaidanhmuc = db.Getall_data_loaidanhmuc();
-
-            //index.Loaidanhmuc = db.Getall_data_loaidanhmuc();
-            //index.DanhMucHoTro= db.Getall_data_danhmuchotro();
-            return View(test);
+            Custom_index index =  new Custom_index();
+            //test.danhmuc = db.Getall_data_danhmuc();
+            //test.loaidanhmuc = db.Getall_data_loaidanhmuc();
+            index.Loaidanhmuc = db.Getall_data_loaidanhmuc();
+            index.DanhMucHoTro = db.Getall_data_danhmuchotro();
+            return View(index);
         }
         [ChildActionOnly]
-        public ActionResult test()
+        public ActionResult test(int id)
         {           
                 Result_dbDM db = new Result_dbDM();
-                List<GiamGia> tb1 = db.Getall_dataGG();
-                return PartialView(tb1);
+                Custom_index index = new Custom_index();
+                index.DanhMuc = db.Getall_data_danhmuc_theoloai(id);
+             
+                return PartialView(index);
                  
         }
         public ActionResult About()
         {
             Result_dbDM db = new Result_dbDM();
-            List<DanhMuc> tb1 = db.Getall_data_danhmuc();
-            return View(tb1);
+          //  List<DanhMuc> tb1 = db.Getall_data_danhmuc();
+            return View();
         }
 
         public ActionResult Contact()

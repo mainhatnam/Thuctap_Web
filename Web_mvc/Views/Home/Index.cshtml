@@ -1,8 +1,9 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
-@model dynamic
-
+@model Web_mvc.Models.Custom_index
 @foreach (var item in Model.Loaidanhmuc)
 {
     <p>mã danh mục: @item.MaLoaiDanhMuc </p>
@@ -19,6 +20,15 @@
 }
 
 <br />
+<hr />
 HẾT vòng lặp
+@foreach (var item in Model.Loaidanhmuc)
+{
+    <p>đang ở loai danh mục @item.MaLoaiDanhMuc </p>
+    Html.RenderAction("test", "Home", new { id = item.MaLoaiDanhMuc });
+    Html.RenderAction("Show_danhmuc", "Main", new { id = item.MaLoaiDanhMuc });
+    <hr />
+}
 
-@{Html.RenderAction("test", "Home"); }
+
+

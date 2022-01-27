@@ -19,8 +19,11 @@ namespace Web_mvc.DB
         [Key]
         public int MaLoaiDanhMuc { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string TenLoaiDanhMuc { get; set; }
+
+        public bool? Trangthai_ldm { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhMuc> DanhMuc { get; set; }

@@ -18,7 +18,8 @@
             <div class="swiper-wrapper">
                 @foreach (var item in Model.Hinh_GT_MAIN)
                 {
-                    <div class="swiper-slide"><a class="cart-slider__frame" href="https://shop.vnpt.vn/goi-cuoc.html?utm_source=freedoo&amp;vsb_click_id=8971973c75b44abea9f34f2141b78c9b1621069796656vn6hscgfyd7boaq4"><img src="@item.Link_hinh_mani" alt="Gói S" /></a></div>
+
+                    <div class="swiper-slide"><a class="cart-slider__frame" href="@Url.Action("Index", "Home")"><img src="@item.Link_hinh_mani" alt="Gói S" /></a></div>
                 }
 
             </div>

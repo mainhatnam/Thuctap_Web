@@ -163,6 +163,19 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\danhmuc\1 %282%29.jpg" />
+    <Content Include="img\danhmuc\1.jpg" />
+    <Content Include="img\danhmuc\10.png" />
+    <Content Include="img\danhmuc\11.jpg" />
+    <Content Include="img\danhmuc\12.png" />
+    <Content Include="img\danhmuc\2.jpg" />
+    <Content Include="img\danhmuc\3.jpg" />
+    <Content Include="img\danhmuc\4.jpg" />
+    <Content Include="img\danhmuc\5.jpg" />
+    <Content Include="img\danhmuc\6.jpg" />
+    <Content Include="img\danhmuc\7.jpg" />
+    <Content Include="img\danhmuc\8.jpg" />
+    <Content Include="img\danhmuc\9.png" />
     <Content Include="img\img_extra\1 %282%29.jpg" />
     <Content Include="img\img_extra\2DBfwcJEQ0aclB6SxCoDHmDB2O9Yam1G0w4x1JsZ.png" />
     <Content Include="img\img_extra\3LiE5X09fbqVlMrEo1R4YilDK3kwfpTYxX4Eal70.png" />
@@ -211,13 +224,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\master_layout.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Main\Details.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
     <Content Include="Views\Shared\Menu.cshtml" />
     <Content Include="Views\Main\img_banner.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Main\Show_danhmuc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
