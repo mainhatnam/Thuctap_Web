@@ -3,6 +3,10 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/master_layout.cshtml";
 }
+@using Web_mvc.DAO
+@using Web_mvc.DB
+@model dynamic
+ 
 <style>
     a.btn-register {
         padding: 8px 20px;
@@ -15,8 +19,9 @@
         border: none;
         outline: none;
     }
+
     .pd-menu .menu-root {
-        display:none !important;
+        display: none !important;
     }
 </style>
 <div class="page__content">
@@ -32,7 +37,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="link-unstyled" href="https://shop.vnptthanhhoa.vn">Trang chủ</a></li>
                     <li class="breadcrumb-item"><a class="link-unstyled" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham">Sản phẩm</a></li>
-                    <li class="breadcrumb-item active">Gói Digi249</li>
+                    <li class="breadcrumb-item active">@Model.TenDanhMuc.DanhMuc</li>
                 </ol>
                 <div class="row gutter -all-20">
                     <div class="col-xl-9">
@@ -68,14 +73,23 @@
                             </div>
                             <div class="col-md-6 mb-30">
                                 <section class="pd-info">
-                                    <h1 class="pd-info__title">Gói Digi249</h1>
-                                    <div class="pd-info__price">
-                                        207.500 ₫
-                                        <del>249.000 ₫</del> <span></span>
+                                    <h1 class="pd-info__title">@Model.TenDanhMuc.DanhMuc</h1>
+                                      
+                                    <div class="pd-info__price">                                        
+                                        
+                                        @if (Model.TenDanhMuc.TienGiamGia == 0)
+                                        {
+                                            <div>@Model.TenDanhMuc.TienGoc  đ</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@Model.TenDanhMuc.TienGiamGia  đ</div>
+                                            <del>@Model.TenDanhMuc.TienGoc ₫</del> <span></span>
+                                        }
                                     </div>
                                     <!-- <div class="pd-info__code"><strong>Mã SKU:</strong> SP00000600</div> -->
                                     <div class="pd-info__detail">
-                                        Gói cước giải trí sành điệu từ VinaPhone. Đặc biệt, giá cước ưu đãi hơn khi đăng ký chu kỳ dài tháng.
+                                        @Model.TenDanhMuc.MoTaNgan
 
                                     </div>
                                     <div class="pd-info__sharing">
@@ -151,26 +165,7 @@
                     </ul>
                     <section class="pd-desc" id="product-description">
                         <div class="pd-desc__content">
-                            Giới thiệu Gói Digi249
-                            <p><strong><em>1. Ưu đ&atilde;i</em></strong></p>
-
-                            <p>- 4Gb/ng&agrave;y truy cập 4G tốc độ cao</p>
-
-                            <p>- 1500p gọi nội mạng VinaPhone</p>
-
-                            <p>- 100p gọi ngoại mạng</p>
-
-                            <p>- 100 tin nhắn nội mạng</p>
-
-                            <p>- G&oacute;i MyTV&nbsp;gồm 169 k&ecirc;nh, bao gồm cả VTVCab v&agrave; VOD, sử dụng tối đa tr&ecirc;n 3 thiết bị di động smartphone</p>
-
-                            <p><em><strong>2. Gi&aacute; cước</strong></em></p>
-
-                            <p>- G&oacute;i 1 th&aacute;ng: 249.000đ</p>
-
-                            <p>- G&oacute;i 6 th&aacute;ng: 1.245.000đ</p>
-
-                            <p>- G&oacute;i 12 th&aacute;ng: 2.490.000đ</p>
+                            @Model.TenDanhMuc.NoiDung
                         </div>
                         <!-- <a class="pd-desc__btn btn btn-outline-primary" href="#!">Đọc thêm</a> -->
                     </section>
@@ -223,64 +218,84 @@
                         <h2 class="section__title">Sản phẩm liên quan</h2>
                     </div>
                     <div class="pd-grid">
-                        <div class="product">
-                            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/dinh-15g"><img src="https://shop.vnptthanhhoa.vn/image/300/300/ibsbBHOl0mXe5sgs93aoqwrf8qLvpD40iHPF77dh.png" alt="" /></a>
-                            <div class="product__body">
-                                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/dinh-15g">ĐỈNH 15G</a></h3>
-                                <div class="product__price">
-                                    70.000 ₫
+                        @foreach (DanhMuc i in Model.MaLoaiDanhMuc)
+                        {
+                            <div class="product">
+                                <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/dinh-15g"><img src="https://shop.vnptthanhhoa.vn/image/300/300/ibsbBHOl0mXe5sgs93aoqwrf8qLvpD40iHPF77dh.png" alt="" /></a>
+                                <div class="product__body">
+                                    <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/dinh-15g">@i.TenDanhMuc</a></h3>
+                                    <div class="product__price">
+                                        @if(i.TienGiamGia == 0)
+                                        {
+                                            @i.TienGoc 
+                                        }
+                                        else
+                                        {
+                                            @i.TienGiamGia
+                                        }
+                                        ₫
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product">
-                            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/max-100-30gb-30-ngay"><img src="https://shop.vnptthanhhoa.vn/image/300/300/6LfBuezYX0OIDg2aQ9QvFAsiAEtxAJwUu3iGdqRl.jpg" alt="" /></a>
-                            <div class="product__body">
-                                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/max-100-30gb-30-ngay">MAX 100 - 30GB/30 ngày</a></h3>
-                                <div class="product__price">
-                                    100.000 ₫
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-d30p"><img src="https://shop.vnptthanhhoa.vn/image/300/300/lec7VFyNhDSXmUUBMJrPiEzDgciumjnJLACzEcQm.jpg" alt="" /></a>
-                            <div class="product__body">
-                                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-d30p">Gói D30P</a></h3>
-                                <div class="product__price">
-                                    90.000 ₫
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-d60g"><img src="https://shop.vnptthanhhoa.vn/image/300/300/wvz2leoeUl1Aicb9jXU3PUKLPLg0tdWi8wsdaVSx.jpg" alt="" /></a>
-                            <div class="product__body">
-                                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-d60g">Gói D60G</a></h3>
-                                <div class="product__price">
-                                    120.000 ₫
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-dinhtv129"><img src="https://shop.vnptthanhhoa.vn/image/300/300/nQcsdRuUdeJjEG41eeda7pikKwP2F5wxWszBkj86.jpg" alt="" /></a>
-                            <div class="product__body">
-                                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-dinhtv129">Gói ĐỈNHTV129</a></h3>
-                                <div class="product__price">
-                                    129.000 ₫
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-d99v"><img src="https://shop.vnptthanhhoa.vn/image/300/300/rxo5TPup7vSwX0LnDLXKLXzVFGpWpkCdoWPlbSae.jpg" alt="" /></a>
-                            <div class="product__body">
-                                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-d99v">Gói D99V</a></h3>
-                                <div class="product__price">
-                                    99.000 ₫
-                                </div>
-                            </div>
-                        </div>
+                        }
+                        @*<div class="product">
+            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/dinh-15g"><img src="https://shop.vnptthanhhoa.vn/image/300/300/ibsbBHOl0mXe5sgs93aoqwrf8qLvpD40iHPF77dh.png" alt="" /></a>
+            <div class="product__body">
+                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/dinh-15g">ĐỈNH 15G</a></h3>
+                <div class="product__price">
+                    70.000 ₫
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/max-100-30gb-30-ngay"><img src="https://shop.vnptthanhhoa.vn/image/300/300/6LfBuezYX0OIDg2aQ9QvFAsiAEtxAJwUu3iGdqRl.jpg" alt="" /></a>
+            <div class="product__body">
+                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/max-100-30gb-30-ngay">MAX 100 - 30GB/30 ngày</a></h3>
+                <div class="product__price">
+                    100.000 ₫
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-d30p"><img src="https://shop.vnptthanhhoa.vn/image/300/300/lec7VFyNhDSXmUUBMJrPiEzDgciumjnJLACzEcQm.jpg" alt="" /></a>
+            <div class="product__body">
+                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-d30p">Gói D30P</a></h3>
+                <div class="product__price">
+                    90.000 ₫
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-d60g"><img src="https://shop.vnptthanhhoa.vn/image/300/300/wvz2leoeUl1Aicb9jXU3PUKLPLg0tdWi8wsdaVSx.jpg" alt="" /></a>
+            <div class="product__body">
+                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-d60g">Gói D60G</a></h3>
+                <div class="product__price">
+                    120.000 ₫
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-dinhtv129"><img src="https://shop.vnptthanhhoa.vn/image/300/300/nQcsdRuUdeJjEG41eeda7pikKwP2F5wxWszBkj86.jpg" alt="" /></a>
+            <div class="product__body">
+                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-dinhtv129">Gói ĐỈNHTV129</a></h3>
+                <div class="product__price">
+                    129.000 ₫
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <a class="product__frame" href="https://shop.vnptthanhhoa.vn/san-pham/goi-d99v"><img src="https://shop.vnptthanhhoa.vn/image/300/300/rxo5TPup7vSwX0LnDLXKLXzVFGpWpkCdoWPlbSae.jpg" alt="" /></a>
+            <div class="product__body">
+                <h3 class="product__title"><a href="https://shop.vnptthanhhoa.vn/san-pham/goi-d99v">Gói D99V</a></h3>
+                <div class="product__price">
+                    99.000 ₫
+                </div>
+            </div>
+        </div>*@
+
                     </div>
                 </section>
             </div>
         </div>
     </div>
-    </div>
-
+</div>

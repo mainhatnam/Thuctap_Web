@@ -8,7 +8,7 @@ using Web_mvc.DAO;
 using Web_mvc.DB;
 using Web_mvc.Models;
 using System.Globalization;
-
+using System.Dynamic;
 namespace Web_mvc.Controllers
 {
     public class MainController : Controller
@@ -43,9 +43,19 @@ namespace Web_mvc.Controllers
             ViewBag.CultureInfo = cul;
             return PartialView(index_dm);
         }
-        public ActionResult Details()
+        public ActionResult Details(int id = 2)
         {
-            return View();
+            GetData_Detail_Product product = new GetData_Detail_Product();
+            dynamic expando = new ExpandoObject();
+
+            expando.DanhMuc = product.GetData_OneProduct(id);
+
+            int Ma = product.MaLoaiDanhMuc(id);
+
+            expando.MaLoaiDanhMuc = product.List_DanhMuc(Ma);
+            
+
+            return View(expando);
         }
 
        
