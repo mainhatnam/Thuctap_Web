@@ -37,7 +37,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="link-unstyled" href="https://shop.vnptthanhhoa.vn">Trang chủ</a></li>
                     <li class="breadcrumb-item"><a class="link-unstyled" href="https://shop.vnptthanhhoa.vn/danh-muc-san-pham">Sản phẩm</a></li>
-                    <li class="breadcrumb-item active">@Model.TenDanhMuc.DanhMuc</li>
+                    <li class="breadcrumb-item active">@Model.DanhMuc.TenDanhMuc</li>
                 </ol>
                 <div class="row gutter -all-20">
                     <div class="col-xl-9">
@@ -73,23 +73,23 @@
                             </div>
                             <div class="col-md-6 mb-30">
                                 <section class="pd-info">
-                                    <h1 class="pd-info__title">@Model.TenDanhMuc.DanhMuc</h1>
+                                    <h1 class="pd-info__title">@Model.DanhMuc.TenDanhMuc</h1>
                                       
                                     <div class="pd-info__price">                                        
                                         
-                                        @if (Model.TenDanhMuc.TienGiamGia == 0)
+                                        @if (Model.DanhMuc.TienGiamGia == 0)
                                         {
-                                            <div>@Model.TenDanhMuc.TienGoc  đ</div>
+                                            <div>@Model.DanhMuc.TienGoc  đ</div>
                                         }
                                         else
                                         {
-                                            <div>@Model.TenDanhMuc.TienGiamGia  đ</div>
-                                            <del>@Model.TenDanhMuc.TienGoc ₫</del> <span></span>
+                                            <div>@Model.DanhMuc.TienGiamGia  đ</div>
+                                            <del>@Model.DanhMuc.TienGoc ₫</del> <span></span>
                                         }
                                     </div>
                                     <!-- <div class="pd-info__code"><strong>Mã SKU:</strong> SP00000600</div> -->
                                     <div class="pd-info__detail">
-                                        @Model.TenDanhMuc.MoTaNgan
+                                        @Model.DanhMuc.MoTaNgan
 
                                     </div>
                                     <div class="pd-info__sharing">
@@ -165,7 +165,7 @@
                     </ul>
                     <section class="pd-desc" id="product-description">
                         <div class="pd-desc__content">
-                            @Model.TenDanhMuc.NoiDung
+                            @Model.DanhMuc.NoiDung
                         </div>
                         <!-- <a class="pd-desc__btn btn btn-outline-primary" href="#!">Đọc thêm</a> -->
                     </section>
