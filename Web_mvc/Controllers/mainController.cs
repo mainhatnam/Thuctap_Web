@@ -21,14 +21,7 @@ namespace Web_mvc.Controllers
             index.Hinh_GT_MAIN = db.Getall_data_Hinhanh();
             index.Hinh_GT_extra = db.Getall_data_Hinhanh_ex();
             index.LoaiDanhMuc_index = db.Getall_loaidanhmuc_index();
-            // test viewbag //
-            List<List<DanhMuc>> dm_pl = new List<List<DanhMuc>>();
-            foreach (var item in index.Loaidanhmuc)
-            {
-                dm_pl.Add(db.Getall_data_danhmuc_theoloai(item.MaLoaiDanhMuc));
-
-            }
-            ViewBag.danhmuc = dm_pl;
+            ViewBag.danhmuc = index;
             //
 
             return View(index);
