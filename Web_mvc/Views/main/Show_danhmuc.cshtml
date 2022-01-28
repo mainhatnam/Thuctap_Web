@@ -9,11 +9,11 @@
 {
 
     <div class="product">
-        <a class="product__frame" href="@Url.Action("Index", "Home")">
+        <a class="product__frame" href="@Url.Action("Details", "Main",new {id=item.Id_DanhMuc})">
             <img src="@item.Link" alt="@item.TenDanhMuc" />
         </a>
         <div class="product__body">
-            <h3 class="product__title"><a href="@Url.Action("Index", "Home")">@item.TenDanhMuc</a></h3>
+            <h3 class="product__title"><a href="@Url.Action("Details", "Main",new {id=item.Id_DanhMuc})">@item.TenDanhMuc</a></h3>
             <div class="product__price">
                 @if (item.GiamGia.TyLe == 0) {                    
                         tien = item.TienGoc;
