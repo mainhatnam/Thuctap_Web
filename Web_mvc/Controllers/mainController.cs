@@ -18,8 +18,6 @@ namespace Web_mvc.Controllers
         {
             Result_dbDM db = new Result_dbDM();
             Custom_index index = new Custom_index();
-            index.Loaidanhmuc = db.Getall_data_loaidanhmuc();
-            index.DanhMucHoTro = db.Getall_data_danhmuchotro();
             index.Hinh_GT_MAIN = db.Getall_data_Hinhanh();
             index.Hinh_GT_extra = db.Getall_data_Hinhanh_ex();
             index.LoaiDanhMuc_index = db.Getall_loaidanhmuc_index();
@@ -31,6 +29,8 @@ namespace Web_mvc.Controllers
 
             }
             ViewBag.danhmuc = dm_pl;
+            //
+
             return View(index);
         }
         [ChildActionOnly]
@@ -42,6 +42,15 @@ namespace Web_mvc.Controllers
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
             ViewBag.CultureInfo = cul;
             return PartialView(index_dm);
+        }
+        [ChildActionOnly]
+        public ActionResult Menu()
+        {
+            Result_dbDM db = new Result_dbDM();
+            Custom_index index = new Custom_index();
+            index.Loaidanhmuc = db.Getall_data_loaidanhmuc();
+            index.DanhMucHoTro = db.Getall_data_danhmuchotro();
+            return PartialView(index);
         }
         public ActionResult Details(int id = 2)
         {
