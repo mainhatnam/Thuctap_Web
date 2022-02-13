@@ -7,9 +7,8 @@ namespace Web_mvc.Models
 {
     public class Custom
     {
-        public int MaLoaiDanhMuc { get; set; }
-        public string TenDanhMuc { get; set; }
-        public string TenLoaiDanhMuc { get; set; }
+        public int MaDV { get; set; }
+        public string TenDV { get; set; }
 
     }
 }

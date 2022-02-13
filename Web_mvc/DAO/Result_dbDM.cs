@@ -16,10 +16,6 @@ namespace Web_mvc.DAO
     public class Result_dbDM
     {
         public DataB mydb = new DataB();
-        public void setobj<T>(T obj)
-        {
-            this.mydb.Set(obj.GetType()).Add(obj);
-        }
         public List<LoaiDanhMuc> Getall_data_loaidanhmuc()
         {
             List<LoaiDanhMuc> LoaiDanhMuc = this.mydb.LoaiDanhMuc.ToList(); ;
@@ -83,6 +79,30 @@ namespace Web_mvc.DAO
         
         }
 
+        public int GET_id_dv(string name)
+        { 
+            var sql = this.mydb.DonVi
+                         .Where(q=>q.IP.Equals(name)).FirstOrDefault();
+          
+
+            return sql.ID;
+        }
+        public List<DonVi> GET_ds_dv(string name)
+        {
+            var sql2 = this.mydb.DonVi
+                       .Where(q => q.IP.Equals(name))
+                       .Take(1).ToList();
+            return sql2;
+        }
+        public List<DanhMuc> Getall_data_danhmuc_dv(int id,int id_dv)
+        {
+            List<DanhMuc> DanhMuc = this.mydb.DanhMuc
+                           .Include("GiamGia")
+                           .Where(p =>p.MaLoaiDanhMuc == id)
+                           .Where(p=>p.ID_DonVi == id_dv)
+                          .OrderByDescending(p => p.Id_DanhMuc).Take(4).ToList();
+            return DanhMuc;
+        }
 
 
     }
