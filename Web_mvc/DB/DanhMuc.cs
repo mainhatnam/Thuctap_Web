@@ -41,6 +41,10 @@ namespace Web_mvc.DB
 
         public int? MaGiamGia { get; set; }
 
+        public int? ID_DonVi { get; set; }
+
+        public virtual DonVi DonVi { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hinh_GT_MAIN> Hinh_GT_MAIN { get; set; }
 

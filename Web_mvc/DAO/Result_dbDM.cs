@@ -10,6 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Web_mvc.DAO
 {
@@ -18,23 +19,18 @@ namespace Web_mvc.DAO
         public DataB mydb = new DataB();
         public List<LoaiDanhMuc> Getall_data_loaidanhmuc()
         {
-            List<LoaiDanhMuc> LoaiDanhMuc = this.mydb.LoaiDanhMuc.ToList(); ;
+            List<LoaiDanhMuc> LoaiDanhMuc = this.mydb.LoaiDanhMuc.ToList(); 
             return LoaiDanhMuc;
         }
         public List<LoaiDanhMuc> Getall_loaidanhmuc_index()
         {
             List<LoaiDanhMuc> LoaiDanhMuc = this.mydb.LoaiDanhMuc
-                .Include("DanhMucHoTro")
+                //.Include("DanhMucHoTro")
                 .Include("DanhMuc")
                 .Include("DanhMuc.GiamGia")
                 .Where(b => b.Trangthai_ldm == true)
                 .ToList(); 
             return LoaiDanhMuc;
-        }
-        public List<DanhMucHoTro> Getall_data_danhmuchotro()
-        {
-            List<DanhMucHoTro> DanhMucHoTro = this.mydb.DanhMucHoTro.ToList();
-            return DanhMucHoTro;
         }
         public List<Hinh_GT_MAIN> Getall_data_Hinhanh()
         {
@@ -65,6 +61,7 @@ namespace Web_mvc.DAO
         }
         public List<DanhMuc> Getall_data_danhmuc()
         {
+            //dữ liệu test
             var list2 = this.mydb.DanhMuc
                 .Include("loaiDanhMuc")
                 .Include("loaiDanhMuc.DanhMucHoTro")
@@ -96,11 +93,15 @@ namespace Web_mvc.DAO
         }
         public List<DanhMuc> Getall_data_danhmuc_dv(int id,int id_dv)
         {
-            List<DanhMuc> DanhMuc = this.mydb.DanhMuc
-                           .Include("GiamGia")
-                           .Where(p =>p.MaLoaiDanhMuc == id)
-                           .Where(p=>p.ID_DonVi == id_dv)
-                          .OrderByDescending(p => p.Id_DanhMuc).Take(4).ToList();
+            List<DanhMuc> DanhMuc = (from danhmuc in this.mydb.DanhMuc
+                                     from ldm in this.mydb.LoaiDanhMuc
+                                     where danhmuc.MaLoaiDanhMuc == ldm.MaLoaiDanhMuc && ldm.id_cha==id && danhmuc.ID_DonVi == id_dv
+                                     select danhmuc).Include("Giamgia").OrderByDescending(p => p.Id_DanhMuc).Take(4).ToList();
+            //List<DanhMuc> DanhMuc = this.mydb.DanhMuc
+            //               .Include("GiamGia")
+            //               .Where(p =>p.MaLoaiDanhMuc == id)
+            //               .Where(p=>p.ID_DonVi == id_dv)
+            //              .OrderByDescending(p => p.Id_DanhMuc).Take(4).ToList();
             return DanhMuc;
         }
 

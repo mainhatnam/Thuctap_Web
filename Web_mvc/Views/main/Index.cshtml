@@ -2,8 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/master_layout.cshtml";
-    //List<List<Web_mvc.DB.DanhMuc>> danhmuc = ViewBag.danhmuc as List<List<Web_mvc.DB.DanhMuc>>;
-    //var d = (List<List<Web_mvc.DB.DanhMuc>>)ViewBag.danhmuc;
+    var danhmuc_idx = (List<Web_mvc.DB.LoaiDanhMuc>)ViewBag.loaidanhmuc_index;
 
 }
 @model Web_mvc.Models.Custom_index
@@ -83,16 +82,16 @@
                 <div class="section__header">
                     <h2 class="section__title">@item_ldm.TenLoaiDanhMuc</h2>
                     <div class="section__nav">
-                        @foreach (var item_dmht in item_ldm.DanhMucHoTro)
+                        @foreach (var item_dmht in danhmuc_idx.Where(x=>x.id_cha == item_ldm.MaLoaiDanhMuc))
                         {
-                            @Html.ActionLink((string)item_dmht.TenGoiHoTro, "Main", "index", null, new { @class = "section__nav-item" })
+                            @Html.ActionLink((string)item_dmht.TenLoaiDanhMuc, "Main", "index", null, new { @class = "section__nav-item" })
                         }
                     </div>
                     @Html.ActionLink("Xem tất cả", "Main", "index", null, new { @class = "section__link" })
 
                 </div>
                 <div class="pd-grid">
-                    @{Html.RenderAction("Show_danhmuc", "Main", new { id = item_ldm.MaLoaiDanhMuc });}           
+                    @{Html.RenderAction("Show_danhmuc", "Main", new { id = item_ldm.MaLoaiDanhMuc }); }           
                 </div>
             }
         </section>

@@ -13,7 +13,7 @@ namespace Web_mvc.DB
         }
 
         public virtual DbSet<DanhMuc> DanhMuc { get; set; }
-        public virtual DbSet<DanhMucHoTro> DanhMucHoTro { get; set; }
+        public virtual DbSet<DonVi> DonVi { get; set; }
         public virtual DbSet<GiamGia> GiamGia { get; set; }
         public virtual DbSet<Hinh_GT_extra> Hinh_GT_extra { get; set; }
         public virtual DbSet<Hinh_GT_MAIN> Hinh_GT_MAIN { get; set; }
@@ -34,6 +34,16 @@ namespace Web_mvc.DB
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<DonVi>()
+                .Property(e => e.IP)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DonVi>()
+                .HasMany(e => e.DanhMuc)
+                .WithOptional(e => e.DonVi)
+                .HasForeignKey(e => e.ID_DonVi);
+
             modelBuilder.Entity<Hinh_GT_extra>()
                 .Property(e => e.Link_hinh_extra)
                 .IsUnicode(false);
@@ -44,11 +54,6 @@ namespace Web_mvc.DB
 
             modelBuilder.Entity<LoaiDanhMuc>()
                 .HasMany(e => e.DanhMuc)
-                .WithRequired(e => e.LoaiDanhMuc)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LoaiDanhMuc>()
-                .HasMany(e => e.DanhMucHoTro)
                 .WithRequired(e => e.LoaiDanhMuc)
                 .WillCascadeOnDelete(false);
         }

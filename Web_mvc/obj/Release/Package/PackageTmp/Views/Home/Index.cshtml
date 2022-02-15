@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+@model Web_mvc.Models.Custom_index
+@foreach (var item in Model.Loaidanhmuc)
+{
+    <p>mã danh mục: @item.MaLoaiDanhMuc </p>
+    <p>Tên danh mục: @item.TenLoaiDanhMuc </p>
+    <br />
+
+}
+@foreach (var item in Model.DanhMucHoTro)
+{
+    <p>mã : @item.MaLoaiDanhMuc </p>
+    <p>Tên : @item.TenGoiHoTro </p>
+    <br />
+
+}
+
+<br />
+<hr />
+HẾT vòng lặp
+@foreach (var item in Model.Loaidanhmuc)
+{
+    <p>đang ở loai danh mục @item.MaLoaiDanhMuc </p>
+    Html.RenderAction("test", "Home", new { id = item.MaLoaiDanhMuc });
+    Html.RenderAction("Show_danhmuc", "Main", new { id = item.MaLoaiDanhMuc });
+    <hr />
+}
+
+
+

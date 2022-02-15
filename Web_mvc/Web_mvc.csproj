@@ -129,12 +129,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="DAO\GetData_Detail_Product.cs" />
     <Compile Include="DAO\Result_dbDM.cs" />
     <Compile Include="DB\DanhMuc.cs" />
-    <Compile Include="DB\DanhMucHoTro.cs" />
     <Compile Include="DB\DataB.cs" />
+    <Compile Include="DB\DonVi.cs" />
     <Compile Include="DB\GiamGia.cs" />
     <Compile Include="DB\Hinh_GT_extra.cs" />
     <Compile Include="DB\Hinh_GT_MAIN.cs" />
@@ -232,9 +234,13 @@
     <Content Include="Views\Main\img_banner.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Main\Show_danhmuc.cshtml" />
+    <Content Include="Views\Main\Category_sp.cshtml" />
+    <Content Include="Views\Main\View.cshtml" />
+    <Content Include="Views\Main\View1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

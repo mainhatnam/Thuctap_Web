@@ -14,7 +14,7 @@ using System.Configuration;
 
 namespace Web_mvc.Controllers
 {
-    public class MainController : Controller
+    public class MainController : BaseController
     {
         // GET: Main
         private readonly int DV;
@@ -25,9 +25,8 @@ namespace Web_mvc.Controllers
             index.Hinh_GT_MAIN = db.Getall_data_Hinhanh();
             index.Hinh_GT_extra = db.Getall_data_Hinhanh_ex();
             index.LoaiDanhMuc_index = db.Getall_loaidanhmuc_index();
-            //ViewBag.danhmuc = index;
-
-           
+            List<LoaiDanhMuc> index_loaidm = db.Getall_data_loaidanhmuc();
+            ViewBag.loaidanhmuc_index = index_loaidm;          
             return View(index);
         }
         [ChildActionOnly]
@@ -41,24 +40,26 @@ namespace Web_mvc.Controllers
             ViewBag.CultureInfo = cul;
             return PartialView(index_dm);
         }
+
         [ChildActionOnly]
-        public void master_layout()
-        {
-            Result_dbDM db = new Result_dbDM();
-            string DomainName = ConfigurationManager.AppSettings["domain-or-ip"];
-            var dv_tamp = db.GET_ds_dv(DomainName);
-            Session.Add("test", dv_tamp[0]);
-        }
-         [ChildActionOnly]
         public ActionResult Menu()
         {
             Result_dbDM db = new Result_dbDM();
-            Custom_index index = new Custom_index();
-            index.Loaidanhmuc = db.Getall_data_loaidanhmuc();
-            index.DanhMucHoTro = db.Getall_data_danhmuchotro();
-            return PartialView(index);
+            List<LoaiDanhMuc> index = db.Getall_data_loaidanhmuc();
+            /* Test linq so sánh where 2 list 
+            var lever1 = index.Where(x => x.id_cha == null).ToList();
+            var lever2 = index.Where(x2 => lever1.Any(x1 => x1.MaLoaiDanhMuc == x2.id_cha)).ToList();
+            var lever3 = index.Where(x2 => lever2.Any(x1 => x1.MaLoaiDanhMuc == x2.id_cha)).ToList();
+             */
+            ViewBag.Loaidanhmuc = index;
+            return PartialView();
         }
-        public ActionResult Details(int id = 2)
+        public ActionResult Category_sp()
+        {
+            return View();
+        }
+
+            public ActionResult Details(int id = 2)
         {
             GetData_Detail_Product product = new GetData_Detail_Product();
             dynamic expando = new ExpandoObject();

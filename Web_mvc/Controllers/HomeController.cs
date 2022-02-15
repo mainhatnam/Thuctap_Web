@@ -20,7 +20,6 @@ namespace Web_mvc.Controllers
             //test.danhmuc = db.Getall_data_danhmuc();
             //test.loaidanhmuc = db.Getall_data_loaidanhmuc();
             index.Loaidanhmuc = db.Getall_data_loaidanhmuc();
-            index.DanhMucHoTro = db.Getall_data_danhmuchotro();
             return View(index);
         }
         [ChildActionOnly]

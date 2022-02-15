@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+@model List<Web_mvc.DB.DanhMuc>
+
+@foreach (var item in Model)
+{
+    <div> @item.Id_DanhMuc </div>
+    <div> @item.TenDanhMuc </div>
+    <br />
+}

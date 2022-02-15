@@ -1,0 +1,8 @@
+﻿@model Web_mvc.Models.Custom_index
+@foreach (var item in Model.DanhMuc)
+{
+    <p>mã danh mục: @item.Id_DanhMuc </p>
+    <p>Tên danh mục: @item.TenDanhMuc </p>
+    <p>loại danh mục: @item.MaLoaiDanhMuc </p>
+}
+<h1>hết loại danh mục </h1>
