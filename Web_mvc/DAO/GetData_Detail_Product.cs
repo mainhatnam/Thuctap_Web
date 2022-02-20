@@ -10,7 +10,7 @@ namespace Web_mvc.DAO
     {
         public DataB mydb = new DataB();
 
-        public DanhMuc GetData_OneProduct(int id)
+        public DanhMuc GetData_OneProduct(string id)
         {
             string sql = "Select * from DanhMuc WHERE Id_DanhMuc = '" + id + "'";
             return this.mydb.Database.SqlQuery<DanhMuc>(sql).FirstOrDefault();
@@ -22,12 +22,24 @@ namespace Web_mvc.DAO
             return this.mydb.Database.SqlQuery<DanhMuc>(sql).ToList();
         }
 
-        public int MaLoaiDanhMuc(int id)
+        public int MaLoaiDanhMuc(string id)
         {
             string sql = "Select * from DanhMuc WHERE Id_DanhMuc = '" + id + "'";
-            DanhMuc a = this.mydb.Database.SqlQuery<DanhMuc>(sql).FirstOrDefault();
-            int v = a.MaLoaiDanhMuc;
-            return v;
+            try
+            {
+                DanhMuc a = this.mydb.Database.SqlQuery<DanhMuc>(sql).FirstOrDefault();
+                int v = a.MaLoaiDanhMuc;
+                return v;
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
         }
+        //public bool Check_id(string id)
+        //{
+        //    string sql = ""
+        //    return false;
+        //}
     }
 }

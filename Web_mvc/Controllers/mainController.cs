@@ -16,6 +16,7 @@ namespace Web_mvc.Controllers
 {
     public class MainController : BaseController
     {
+        //[HandleError]
         // GET: Main
         private readonly int DV;
         public ActionResult Index()
@@ -59,21 +60,44 @@ namespace Web_mvc.Controllers
             return View();
         }
 
-            public ActionResult Details(int id = 2)
+        //public ActionResult Details()
+        //{
+        //    return View();
+        //}
+        public ActionResult Details(string id)
         {
-            GetData_Detail_Product product = new GetData_Detail_Product();
-            dynamic expando = new ExpandoObject();
-
-            expando.DanhMuc = product.GetData_OneProduct(id);
-
-            int Ma = product.MaLoaiDanhMuc(id);
-
-            expando.MaLoaiDanhMuc = product.List_DanhMuc(Ma);           
-            return View(expando);
+            //if (id == null)
+            //    return new ContentResult { Content = "Không có tham số" };
+            //else{
+            try
+            {
+                int check = Convert.ToInt32(id); //Chuyển Id sang số
+                GetData_Detail_Product product = new GetData_Detail_Product();
+                dynamic expando = new ExpandoObject();
+                expando.DanhMuc = product.GetData_OneProduct(id);
+                int Ma = product.MaLoaiDanhMuc(id);
+                if (Ma == 0) //id chưa có
+                {
+                    return HttpNotFound();
+                }
+                expando.MaLoaiDanhMuc = product.List_DanhMuc(Ma);
+                return View(expando);
+            }
+            catch
+            {
+                return  HttpNotFound();
+            }
+                
+            //}
+        }
+        public ActionResult PageNotFound()
+        {
+            return View();
         }
 
-       
 
 
-        }
+
+
     }
+}
